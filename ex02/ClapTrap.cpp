@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:43 by rgobet            #+#    #+#             */
-/*   Updated: 2024/09/24 14:03:39 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/07 08:38:05 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ ClapTrap::ClapTrap(void):_name("Random"), _health(0), _energy(0), _attack(0) {
 
 ClapTrap::ClapTrap(std::string name):_name(name), _health(10), _energy(10), _attack(0) {
 	std::cout << _name << " ClapTrap has been created." << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap &obj) {
+	std::cout << _name << " has been created with copy constructor." << std::endl;
+	*this = obj;
 }
 
 ClapTrap::~ClapTrap(void) {

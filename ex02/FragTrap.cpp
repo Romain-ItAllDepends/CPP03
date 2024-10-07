@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:43 by rgobet            #+#    #+#             */
-/*   Updated: 2024/09/24 15:11:25 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/07 08:38:35 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ FragTrap::FragTrap(std::string name): ClapTrap(name) {
 	_energy = 100;
 	_attack = 30;
 	std::cout << _name << " FragTrap has been created." << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap &obj) {
+	std::cout << _name << " FragTrap has been created with copy constructor." << std::endl;
+	*this = obj;
 }
 
 FragTrap::~FragTrap(void) {

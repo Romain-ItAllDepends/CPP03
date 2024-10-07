@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:45 by rgobet            #+#    #+#             */
-/*   Updated: 2024/09/25 08:29:16 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/07 08:26:17 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScavTrap: public ClapTrap {
 public:
 	ScavTrap(void);
 	ScavTrap(std::string name);
+	ScavTrap(ScavTrap &obj);
 	~ScavTrap(void);
 
 	void attack(const std::string& target);

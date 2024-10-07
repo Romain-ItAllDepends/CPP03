@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:43 by rgobet            #+#    #+#             */
-/*   Updated: 2024/09/24 14:14:52 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/07 08:38:42 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
 	_energy = 50;
 	_attack = 20;
 	std::cout << _name << " ScavTrap has been created." << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap &obj) {
+	std::cout << _name << " ScavTrap has been created with copy constructor." << std::endl;
+	*this = obj;
 }
 
 ScavTrap::~ScavTrap(void) {

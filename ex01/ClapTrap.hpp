@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:45 by rgobet            #+#    #+#             */
-/*   Updated: 2024/09/24 13:46:23 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/07 08:25:42 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ protected:
 public:
 	ClapTrap(void);
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap &obj);
 	~ClapTrap(void);
 
 	void attack(const std::string& target);

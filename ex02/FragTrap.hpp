@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:45 by rgobet            #+#    #+#             */
-/*   Updated: 2024/09/25 08:29:54 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/07 08:28:23 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class FragTrap: public ClapTrap {
 public:
 	FragTrap(void);
 	FragTrap(std::string name);
+	FragTrap(FragTrap &obj);
 	~FragTrap(void);
 
 	void attack(const std::string& target);
