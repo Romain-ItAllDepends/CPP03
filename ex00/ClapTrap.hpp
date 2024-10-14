@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:45 by rgobet            #+#    #+#             */
-/*   Updated: 2024/10/07 08:23:07 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/14 09:06:52 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class ClapTrap {
 private:
 	std::string		_name;
-	unsigned int	_health;
-	unsigned int	_energy;
-	unsigned int	_attack;
+	unsigned int	_hitPoints;
+	unsigned int	_energyPoints;
+	unsigned int	_attackDamage;
 public:
 	ClapTrap(void);
-	ClapTrap(ClapTrap &obj);
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap &obj);
 	~ClapTrap(void);
 
 	void attack(const std::string& target);

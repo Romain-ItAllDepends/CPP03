@@ -6,7 +6,7 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:45 by rgobet            #+#    #+#             */
-/*   Updated: 2024/10/07 08:28:23 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/14 16:14:49 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ public:
 	FragTrap(FragTrap &obj);
 	~FragTrap(void);
 
-	void attack(const std::string& target);
 	void highFivesGuys(void);
 
 	std::string		getName(void) const;

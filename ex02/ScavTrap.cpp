@@ -6,23 +6,23 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:43 by rgobet            #+#    #+#             */
-/*   Updated: 2024/10/07 08:38:42 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/14 16:14:09 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void): ClapTrap() {
-	_health = 0;
-	_energy = 0;
-	_attack = 0;
+	_hitPoints = 0;
+	_energyPoints = 0;
+	_attackDamage = 0;
 	std::cout << _name << " has been created with ScavTrap standart constructor." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
-	_health = 100;
-	_energy = 50;
-	_attack = 20;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << _name << " ScavTrap has been created." << std::endl;
 }
 
@@ -40,15 +40,15 @@ std::string	ScavTrap::getName(void) const {
 }
 
 unsigned int	ScavTrap::getHealth(void) const {
-	return (_health);
+	return (_hitPoints);
 }
 
 unsigned int	ScavTrap::getEnergy(void) const {
-	return (_energy);
+	return (_energyPoints);
 }
 
 unsigned int	ScavTrap::getAttack(void) const {
-	return (_attack);
+	return (_attackDamage);
 }
 
 void	ScavTrap::setName(std::string name) {
@@ -56,24 +56,32 @@ void	ScavTrap::setName(std::string name) {
 }
 
 void	ScavTrap::setHealth(unsigned int health) {
-	_health = health;
+	_hitPoints = health;
 }
 
 void	ScavTrap::setEnergy(unsigned int energy) {
-	_energy = energy;
+	_energyPoints = energy;
 }
 
 void	ScavTrap::setAttack(unsigned int attack) {
-	_attack = attack;
+	_attackDamage = attack;
 }
 
 void ScavTrap::guardGate() {
+	if (_hitPoints == 0 || _energyPoints == 0) {
+		std::cout << "ScavTrap " << _name << " has no energy points or dead, can't guard." << std::endl;
+		return ;
+	}
 	std::cout << _name << " is now in Gate keeper mode." << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target) {
-		std::cout << "ScavTrap " << _name << " attacks " << target;
-		std::cout << ", causing " << _attack << " points of damage!" << std::endl;
+	if (_hitPoints == 0 || _energyPoints == 0) {
+		std::cout << "ScavTrap " << _name << " has no energy points or dead, can't attack." << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap " << _name << " attacks " << target;
+	std::cout << ", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap& a) {
@@ -81,9 +89,9 @@ ScavTrap &ScavTrap::operator=(const ScavTrap& a) {
 	if (this != &a)
 	{
 		_name = a.getName();
-		_name = a.getHealth();
-		_name = a.getEnergy();
-		_name = a.getAttack();
+		_hitPoints = a.getHealth();
+		_energyPoints = a.getEnergy();
+		_attackDamage = a.getAttack();
 	}
 	return (*this);
 }

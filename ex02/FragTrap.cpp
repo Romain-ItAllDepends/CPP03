@@ -6,23 +6,23 @@
 /*   By: rgobet <rgobet@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:58:43 by rgobet            #+#    #+#             */
-/*   Updated: 2024/10/07 08:38:35 by rgobet           ###   ########.fr       */
+/*   Updated: 2024/10/14 16:16:01 by rgobet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(void): ClapTrap() {
-	_health = 0;
-	_energy = 0;
-	_attack = 0;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 	std::cout << _name << " has been created with FragTrap standart constructor." << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name) {
-	_health = 100;
-	_energy = 100;
-	_attack = 30;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 	std::cout << _name << " FragTrap has been created." << std::endl;
 }
 
@@ -40,15 +40,15 @@ std::string	FragTrap::getName(void) const {
 }
 
 unsigned int	FragTrap::getHealth(void) const {
-	return (_health);
+	return (_hitPoints);
 }
 
 unsigned int	FragTrap::getEnergy(void) const {
-	return (_energy);
+	return (_energyPoints);
 }
 
 unsigned int	FragTrap::getAttack(void) const {
-	return (_attack);
+	return (_attackDamage);
 }
 
 void	FragTrap::setName(std::string name) {
@@ -56,24 +56,23 @@ void	FragTrap::setName(std::string name) {
 }
 
 void	FragTrap::setHealth(unsigned int health) {
-	_health = health;
+	_hitPoints = health;
 }
 
 void	FragTrap::setEnergy(unsigned int energy) {
-	_energy = energy;
+	_energyPoints = energy;
 }
 
 void	FragTrap::setAttack(unsigned int attack) {
-	_attack = attack;
+	_attackDamage = attack;
 }
 
 void FragTrap::highFivesGuys(void) {
-	std::cout << _name << "give an high five!" << std::endl;
-}
-
-void	FragTrap::attack(const std::string& target) {
-		std::cout << "FragTrap " << _name << " attacks " << target;
-		std::cout << ", causing " << _attack << " points of damage!" << std::endl;
+	if (_hitPoints == 0 || _energyPoints == 0) {
+		std::cout << "FragTrap " << _name << " has no energy points or dead, can't high five." << std::endl;
+		return ;
+	}
+	std::cout << _name << " give an high five!" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap& a) {
@@ -81,9 +80,9 @@ FragTrap &FragTrap::operator=(const FragTrap& a) {
 	if (this != &a)
 	{
 		_name = a.getName();
-		_name = a.getHealth();
-		_name = a.getEnergy();
-		_name = a.getAttack();
+		_hitPoints = a.getHealth();
+		_energyPoints = a.getEnergy();
+		_attackDamage = a.getAttack();
 	}
 	return (*this);
 }
